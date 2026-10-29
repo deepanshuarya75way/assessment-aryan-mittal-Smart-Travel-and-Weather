@@ -181,3 +181,18 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+    
+import requests
+import stramlit as st
+API_URL = "https://127.0.0.1:8000"
+
+if s.button("Check Backend"):
+    try:
+        response = request.get(f'{API_URL}/health,timeout=9')
+        response.raise_for_status()
+        st.sucess("Backend connected")
+        st.json(response.json())
+    except request.RequestException as e:
+        st.error(f"Backend connection failed:{e}")
